@@ -1,38 +1,127 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px 20px;
+}
+
 .App {
-  text-align: center;
+    display: grid;
+    row-gap: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loto-table {
+    border: 2px solid #e31d1a;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loto-table tbody {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loto-column {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    padding: 5px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.loto-cell .loto-cell__button {
+    background-color: #e31d1a;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loto-cell:last-child .loto-cell__button {
+    background-color: #99d4f0;
+}
+
+.loto-cell:last-child .loto-cell__button {
+    color: #000;
+}
+
+.loto-cell__button.cell-dropdown {
+    text-align: center;
+    cursor: text;
+}
+
+.cell-dropdown::after {
+    content: none;
+}
+
+.cell-dropdown ~ .dropdown-menu.show{
+    height: 235px;
+    overflow-y: auto;
+}
+
+.loto-cell__button {
+    width: 40px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    height: 40px;
+    padding: 5px;
+    line-height: 1.5;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.loto-cell__buttons-to-edit:not(.show) {
+    display: none;
+}
+
+.loto-cell:hover .loto-cell__buttons-to-edit,
+.loto-cell__buttons-to-edit.show {
+    display: flex;
+    column-gap: 8px;
+    margin-top: 5px;
+}
+
+.loto-cell__buttons-to-edit button {
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.app-button {
+    display: flex;
+    column-gap: 20px;
+}
+
+.app-button button {
+    flex-grow: 1;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.restart-button {
+    background-color: #e31d1a;
+}
+
+.generate-button {
+    background-color: #ffc565;
+}
+
+@media screen and (max-width: 600px) {
+    .loto-column {
+        column-gap: 5px;
+    }
+
+    .loto-cell__button {
+        width: 35px;
+        height: 35px;
+    }
 }
